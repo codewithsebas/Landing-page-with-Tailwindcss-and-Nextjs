@@ -110,6 +110,8 @@ export default function Home() {
               <div className="grid grow grid-cols-2 items-center justify-center gap-3">
                 <Card img="https://res.cloudinary.com/dovavvnjx/image/upload/v1677193605/card_up0qlr.jpg" />
                 <Card img="https://res.cloudinary.com/dovavvnjx/image/upload/v1677193605/card2_v8mz3m.jpg" />
+                <Card img="https://res.cloudinary.com/dovavvnjx/image/upload/v1677193624/card3_w6wik0.jpg" />
+                <Card img="https://res.cloudinary.com/dovavvnjx/image/upload/v1677209889/pexels-tirachard-kumtanom-887824_emhgav.jpg" />
               </div>
             </div>
           </div>

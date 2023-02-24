@@ -7,7 +7,7 @@ interface Image {
 
 export default function Card({ img }: Image) {
   return (
-    <div className="grow flex h-44 w-full overflow-hidden rounded-xl bg-white shadow-lg hover:scale-95 ease-out duration-200 cursor-pointer">
+    <div className="grow flex h-32 w-full overflow-hidden rounded-xl bg-white border border-slate-100 hover:scale-95 ease-out duration-200 cursor-pointer">
       <div className="w-60">
         <Image
           className="h-full w-full object-cover duration-200"
