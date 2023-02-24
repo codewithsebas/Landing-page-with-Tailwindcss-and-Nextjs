@@ -1,6 +1,15 @@
+import Card from "@/components/Card";
+import Header from "@/components/Header";
 import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
 
 export default function Home() {
+  const [images, setImages] = useState(1);
+  const img1 = "/cards/card.jpg";
+  const img2 = "/cards/card2.jpg";
+
   return (
     <>
       <Head>
@@ -9,8 +18,102 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.svg" />
       </Head>
-      <main>
-        <h1 className="font-bold text-slate-100">Hello world!</h1>
+      <main className="flex w-full flex-col gap-5 pb-5 md:px-32 2xl:px-72">
+        <Header />
+        <div className="rounded-y-2xl relative flex w-full items-center justify-center px-5 pt-28">
+          <div className="absolute bottom-0 h-full w-full bg-gradient-to-t from-white"></div>
+          <Image
+            className={`absolute top-0 -z-10 h-full w-full rounded-2xl object-cover object-top duration-500 ${
+              images == 1 ? " opacity-100" : "opacity-0 ease-out"
+            }`}
+            src="/index.jpg"
+            alt="Background"
+            width={2000}
+            height={2000}
+            priority
+          />
+          <Image
+            className={`absolute top-0 -z-10 h-full w-full rounded-2xl object-cover duration-500 ${
+              images == 2 ? " opacity-40" : "opacity-0 ease-out"
+            }`}
+            src="/index2.jpg"
+            alt="Background"
+            width={2000}
+            height={2000}
+            priority
+          />
+          <Image
+            className={`absolute top-0 -z-10 h-full w-full rounded-2xl object-cover duration-500 ${
+              images == 3 ? " opacity-80" : "opacity-0 ease-out"
+            }`}
+            src="/index3.jpg"
+            alt="Background"
+            width={2000}
+            height={2000}
+            priority
+          />
+
+          <div className="z-10 flex flex-col items-center gap-12 text-center">
+            <div className="flex flex-col justify-between items-stretch gap-10">
+              <div className="flex flex-col gap-5">
+                <h1 className="text-7xl font-extrabold text-zinc-700">
+                  Unlock the capability of your inventory
+                </h1>
+                <p className="text-xl font-medium text-zinc-600">
+                  Acquire reliable information and gain the necessary insights
+                  to implement change and propel advancement
+                </p>
+              </div>
+              <div className="flex flex-col items-center gap-10">
+                <div className="flex items-center gap-3">
+                  <Link
+                    className="rounded-lg border border-black/40 bg-white py-3 px-6 font-bold shadow-lg duration-200 hover:border-black/60 hover:bg-slate-50"
+                    href={"/login"}
+                  >
+                    Let´s Get Started
+                  </Link>
+                  <Link
+                    className="rounded-lg bg-zinc-700 py-3 px-6 font-bold text-white shadow-lg duration-200 hover:bg-zinc-800"
+                    href={"/signup"}
+                  >
+                    Explore More
+                  </Link>
+                </div>
+                <div className="flex gap-2">
+                  <span
+                    onClick={() => setImages(1)}
+                    className={`cursor-pointer rounded-full duration-200 ease-linear ${
+                      images == 1
+                        ? "h-3 w-6 bg-zinc-700"
+                        : "h-3 w-3 bg-zinc-400"
+                    }`}
+                  ></span>
+                  <span
+                    onClick={() => setImages(2)}
+                    className={`cursor-pointer rounded-full duration-200 ease-linear ${
+                      images == 2
+                        ? "h-3 w-6 bg-zinc-700"
+                        : "h-3 w-3 bg-zinc-400"
+                    }`}
+                  ></span>
+                  <span
+                    onClick={() => setImages(3)}
+                    className={`cursor-pointer rounded-full duration-200 ease-linear ${
+                      images == 3
+                        ? "h-3 w-6 bg-zinc-700"
+                        : "h-3 w-3 bg-zinc-400"
+                    }`}
+                  ></span>
+                </div>
+              </div>
+
+              <div className="grid grow grid-cols-2 items-center justify-center gap-3">
+                <Card img="https://res.cloudinary.com/dovavvnjx/image/upload/v1677193605/card_up0qlr.jpg" />
+                <Card img="https://res.cloudinary.com/dovavvnjx/image/upload/v1677193605/card2_v8mz3m.jpg" />
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
     </>
   );
